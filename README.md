@@ -155,12 +155,6 @@ La aplicación está completamente optimizada para:
 - [ ] Aplicación móvil nativa
 - [ ] Inteligencia artificial para recomendaciones
 
-## 📞 Soporte
-
-Para soporte técnico o consultas sobre el sistema:
-- Email: soporte@nutritrack365.com
-- Documentación: [docs.nutritrack365.com](https://docs.nutritrack365.com)
-- GitHub: [github.com/nutritrack365](https://github.com/nutritrack365)
 
 ## 📄 Licencia
 
