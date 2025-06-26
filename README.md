@@ -181,7 +181,7 @@ Para soporte técnico o consultas sobre el sistema:
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Este proyecto es para fines academicos y hecho por estudiantes para Diseñar la Interfaz de Usuario dentro de la aplicacion.
 
 ---
 
