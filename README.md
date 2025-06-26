@@ -58,22 +58,6 @@ NutriTrack365 es una aplicación web moderna diseñada para gestionar usuarios, 
 - **FichaMedicaMedicacion**: Medicación por ficha médica
 - **FichaMedicaAlergias**: Alergias por ficha médica
 
-## 🚀 Instalación y Uso
-
-### Requisitos
-- Navegador web moderno (Chrome, Firefox, Safari, Edge)
-- Servidor web (opcional para desarrollo local)
-
-### Instalación
-1. Clona o descarga el proyecto
-2. Abre `index.html` en tu navegador
-3. ¡Listo! La aplicación está lista para usar
-
-### Configuración de la Base de Datos
-1. Ejecuta el script SQL `TPO_IDI.sql` en SQL Server
-2. Configura la conexión a la base de datos en el backend
-3. Importa datos de ejemplo si es necesario
-
 ## 🎨 Características de la Interfaz
 
 ### Diseño Responsivo
