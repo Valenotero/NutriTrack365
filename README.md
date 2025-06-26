@@ -108,7 +108,6 @@ NutriTrack365 es una aplicación web moderna diseñada para gestionar usuarios, 
 
 ### Backend (Base de Datos)
 - **SQL Server**: Sistema de gestión de base de datos
-- **T-SQL**: Lenguaje de consulta y programación
 - **Triggers**: Automatización de cálculos
 - **Vistas**: Consultas optimizadas
 
