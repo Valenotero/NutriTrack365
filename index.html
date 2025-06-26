@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriTrack365 - Sistema de Gestión de Salud y Nutrición</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-heartbeat"></i>
+                <span>NutriTrack365</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                <li><a href="#usuarios" class="nav-link">Usuarios</a></li>
+                <li><a href="#profesionales" class="nav-link">Profesionales</a></li>
+                <li><a href="#ejercicios" class="nav-link">Ejercicios</a></li>
+                <li><a href="#nutricion" class="nav-link">Nutrición</a></li>
+                <li><a href="#salud" class="nav-link">Salud</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <h1 class="section-title">Dashboard Principal</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>1,247</h3>
+                            <p>Usuarios Activos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>89</h3>
+                            <p>Profesionales</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>5,432</h3>
+                            <p>Ejercicios Realizados</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>2,891</h3>
+                            <p>Recetas Consumidas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Actividad Reciente</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>María González</h4>
+                                    <p>Completó ejercicio: Correr 30 min</p>
+                                    <span class="activity-time">Hace 2 horas</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Carlos Rodríguez</h4>
+                                    <p>Registró comida: Ensalada César</p>
+                                    <span class="activity-time">Hace 3 horas</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-weight"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Ana Martínez</h4>
+                                    <p>Actualizó peso: 68.5 kg</p>
+                                    <span class="activity-time">Hace 5 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Alertas de Salud</h3>
+                        <div class="alerts-list">
+                            <div class="alert-item warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>3 usuarios con síntomas frecuentes</span>
+                            </div>
+                            <div class="alert-item info">
+                                <i class="fas fa-info-circle"></i>
+                                <span>5 citas programadas para hoy</span>
+                            </div>
+                            <div class="alert-item success">
+                                <i class="fas fa-check-circle"></i>
+                                <span>12 objetivos de salud completados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usuarios Section -->
+        <section id="usuarios" class="section">
+            <div class="container">
+                <h1 class="section-title">Gestión de Usuarios</h1>
+                <div class="section-header">
+                    <button class="btn btn-primary" onclick="showModal('addUserModal')">
+                        <i class="fas fa-plus"></i> Nuevo Usuario
+                    </button>
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar usuarios..." id="userSearch">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Peso (kg)</th>
+                                <th>Altura (cm)</th>
+                                <th>Género</th>
+                                <th>Edad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>María González</td>
+                                <td>maria@email.com</td>
+                                <td>65</td>
+                                <td>165</td>
+                                <td>F</td>
+                                <td>28</td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Ver perfil">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Carlos Rodríguez</td>
+                                <td>carlos@email.com</td>
+                                <td>78</td>
+                                <td>175</td>
+                                <td>M</td>
+                                <td>32</td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Ver perfil">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Ana Martínez</td>
+                                <td>ana@email.com</td>
+                                <td>68.5</td>
+                                <td>160</td>
+                                <td>F</td>
+                                <td>25</td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Ver perfil">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profesionales Section -->
+        <section id="profesionales" class="section">
+            <div class="container">
+                <h1 class="section-title">Profesionales de la Salud</h1>
+                <div class="section-header">
+                    <button class="btn btn-primary" onclick="showModal('addProfessionalModal')">
+                        <i class="fas fa-plus"></i> Nuevo Profesional
+                    </button>
+                    <div class="filter-group">
+                        <select id="specialtyFilter">
+                            <option value="">Todas las especialidades</option>
+                            <option value="Nutricionista">Nutricionista</option>
+                            <option value="Entrenador">Entrenador</option>
+                            <option value="Médico">Médico</option>
+                            <option value="Fisioterapeuta">Fisioterapeuta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="professionals-grid">
+                    <div class="professional-card">
+                        <div class="professional-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="professional-info">
+                            <h3>Dr. Laura Sánchez</h3>
+                            <p class="specialty">Nutricionista</p>
+                            <p class="email">laura.sanchez@nutritrack.com</p>
+                            <div class="professional-stats">
+                                <span>45 pacientes</span>
+                                <span>4.8 ★</span>
+                            </div>
+                        </div>
+                        <div class="professional-actions">
+                            <button class="btn btn-outline">Ver perfil</button>
+                            <button class="btn btn-primary">Contactar</button>
+                        </div>
+                    </div>
+
+                    <div class="professional-card">
+                        <div class="professional-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="professional-info">
+                            <h3>Lic. Roberto Torres</h3>
+                            <p class="specialty">Entrenador Personal</p>
+                            <p class="email">roberto.torres@nutritrack.com</p>
+                            <div class="professional-stats">
+                                <span>32 pacientes</span>
+                                <span>4.9 ★</span>
+                            </div>
+                        </div>
+                        <div class="professional-actions">
+                            <button class="btn btn-outline">Ver perfil</button>
+                            <button class="btn btn-primary">Contactar</button>
+                        </div>
+                    </div>
+
+                    <div class="professional-card">
+                        <div class="professional-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="professional-info">
+                            <h3>Dra. Patricia López</h3>
+                            <p class="specialty">Médico General</p>
+                            <p class="email">patricia.lopez@nutritrack.com</p>
+                            <div class="professional-stats">
+                                <span>67 pacientes</span>
+                                <span>4.7 ★</span>
+                            </div>
+                        </div>
+                        <div class="professional-actions">
+                            <button class="btn btn-outline">Ver perfil</button>
+                            <button class="btn btn-primary">Contactar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejercicios Section -->
+        <section id="ejercicios" class="section">
+            <div class="container">
+                <h1 class="section-title">Ejercicios Físicos</h1>
+                <div class="section-header">
+                    <button class="btn btn-primary" onclick="showModal('addExerciseModal')">
+                        <i class="fas fa-plus"></i> Nuevo Ejercicio
+                    </button>
+                    <div class="filter-group">
+                        <select id="exerciseTypeFilter">
+                            <option value="">Todos los tipos</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Fuerza">Fuerza</option>
+                            <option value="Flexibilidad">Flexibilidad</option>
+                            <option value="Yoga">Yoga</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="exercises-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-header">
+                            <h3>Correr</h3>
+                            <span class="exercise-type cardio">Cardio</span>
+                        </div>
+                        <div class="exercise-details">
+                            <p><strong>Calorías:</strong> 300-600 kcal/hora</p>
+                            <p><strong>Músculos:</strong> Piernas, Glúteos</p>
+                            <p><strong>Dificultad:</strong> Intermedia</p>
+                        </div>
+                        <div class="exercise-actions">
+                            <button class="btn btn-outline">Ver detalles</button>
+                            <button class="btn btn-primary">Registrar actividad</button>
+                        </div>
+                    </div>
+
+                    <div class="exercise-card">
+                        <div class="exercise-header">
+                            <h3>Sentadillas</h3>
+                            <span class="exercise-type strength">Fuerza</span>
+                        </div>
+                        <div class="exercise-details">
+                            <p><strong>Calorías:</strong> 100-200 kcal/hora</p>
+                            <p><strong>Músculos:</strong> Cuádriceps, Glúteos</p>
+                            <p><strong>Dificultad:</strong> Básica</p>
+                        </div>
+                        <div class="exercise-actions">
+                            <button class="btn btn-outline">Ver detalles</button>
+                            <button class="btn btn-primary">Registrar actividad</button>
+                        </div>
+                    </div>
+
+                    <div class="exercise-card">
+                        <div class="exercise-header">
+                            <h3>Yoga</h3>
+                            <span class="exercise-type flexibility">Flexibilidad</span>
+                        </div>
+                        <div class="exercise-details">
+                            <p><strong>Calorías:</strong> 150-300 kcal/hora</p>
+                            <p><strong>Músculos:</strong> Todo el cuerpo</p>
+                            <p><strong>Dificultad:</strong> Variable</p>
+                        </div>
+                        <div class="exercise-actions">
+                            <button class="btn btn-outline">Ver detalles</button>
+                            <button class="btn btn-primary">Registrar actividad</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrición Section -->
+        <section id="nutricion" class="section">
+            <div class="container">
+                <h1 class="section-title">Nutrición y Alimentación</h1>
+                
+                <div class="nutrition-tabs">
+                    <button class="tab-btn active" onclick="showTab('alimentos')">Alimentos</button>
+                    <button class="tab-btn" onclick="showTab('recetas')">Recetas</button>
+                    <button class="tab-btn" onclick="showTab('consumo')">Consumo Diario</button>
+                </div>
+
+                <div id="alimentos" class="tab-content active">
+                    <div class="section-header">
+                        <button class="btn btn-primary" onclick="showModal('addFoodModal')">
+                            <i class="fas fa-plus"></i> Nuevo Alimento
+                        </button>
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar alimentos..." id="foodSearch">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+
+                    <div class="foods-grid">
+                        <div class="food-card">
+                            <div class="food-header">
+                                <h3>Pollo</h3>
+                                <span class="food-category">Proteína</span>
+                            </div>
+                            <div class="nutrition-info">
+                                <div class="nutrition-item">
+                                    <span>Calorías:</span>
+                                    <span>165 kcal/100g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span>Proteínas:</span>
+                                    <span>31g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span>Grasas:</span>
+                                    <span>3.6g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span>Carbohidratos:</span>
+                                    <span>0g</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Agregar a receta</button>
+                        </div>
+
+                        <div class="food-card">
+                            <div class="food-header">
+                                <h3>Arroz Integral</h3>
+                                <span class="food-category">Cereal</span>
+                            </div>
+                            <div class="nutrition-info">
+                                <div class="nutrition-item">
+                                    <span>Calorías:</span>
+                                    <span>111 kcal/100g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span>Proteínas:</span>
+                                    <span>2.6g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span>Grasas:</span>
+                                    <span>0.9g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span>Carbohidratos:</span>
+                                    <span>23g</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Agregar a receta</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="recetas" class="tab-content">
+                    <div class="section-header">
+                        <button class="btn btn-primary" onclick="showModal('addRecipeModal')">
+                            <i class="fas fa-plus"></i> Nueva Receta
+                        </button>
+                    </div>
+
+                    <div class="recipes-grid">
+                        <div class="recipe-card">
+                            <div class="recipe-header">
+                                <h3>Ensalada César</h3>
+                                <span class="calories">320 kcal</span>
+                            </div>
+                            <div class="recipe-ingredients">
+                                <h4>Ingredientes:</h4>
+                                <ul>
+                                    <li>Lechuga romana</li>
+                                    <li>Pollo a la plancha</li>
+                                    <li>Crutones</li>
+                                    <li>Parmesano</li>
+                                    <li>Aderezo César</li>
+                                </ul>
+                            </div>
+                            <div class="recipe-actions">
+                                <button class="btn btn-outline">Ver receta completa</button>
+                                <button class="btn btn-primary">Registrar consumo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="consumo" class="tab-content">
+                    <div class="section-header">
+                        <h3>Consumo Diario</h3>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Registrar Comida
+                        </button>
+                    </div>
+                    <div class="consumption-summary">
+                        <div class="consumption-card">
+                            <h4>Hoy</h4>
+                            <div class="consumption-stats">
+                                <div class="consumption-item">
+                                    <span>Calorías:</span>
+                                    <span>1,850 / 2,000</span>
+                                </div>
+                                <div class="consumption-item">
+                                    <span>Proteínas:</span>
+                                    <span>85g / 120g</span>
+                                </div>
+                                <div class="consumption-item">
+                                    <span>Carbohidratos:</span>
+                                    <span>220g / 250g</span>
+                                </div>
+                                <div class="consumption-item">
+                                    <span>Grasas:</span>
+                                    <span>65g / 70g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Salud Section -->
+        <section id="salud" class="section">
+            <div class="container">
+                <h1 class="section-title">Gestión de Salud</h1>
+                
+                <div class="health-tabs">
+                    <button class="tab-btn active" onclick="showHealthTab('sintomas')">Síntomas</button>
+                    <button class="tab-btn" onclick="showHealthTab('enfermedades')">Enfermedades</button>
+                    <button class="tab-btn" onclick="showHealthTab('medicacion')">Medicación</button>
+                    <button class="tab-btn" onclick="showHealthTab('alergias')">Alergias</button>
+                </div>
+
+                <div id="sintomas" class="health-tab-content active">
+                    <div class="section-header">
+                        <button class="btn btn-primary" onclick="showModal('addSymptomModal')">
+                            <i class="fas fa-plus"></i> Registrar Síntoma
+                        </button>
+                    </div>
+
+                    <div class="symptoms-grid">
+                        <div class="symptom-card">
+                            <div class="symptom-header">
+                                <h3>Dolor de Cabeza</h3>
+                                <span class="frequency">Frecuente</span>
+                            </div>
+                            <p>Dolor intenso en la región temporal</p>
+                            <div class="symptom-details">
+                                <span><strong>Usuario:</strong> María González</span>
+                                <span><strong>Fecha:</strong> 15/12/2024</span>
+                                <span><strong>Apariciones:</strong> 5</span>
+                            </div>
+                            <button class="btn btn-outline">Ver historial</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="enfermedades" class="health-tab-content">
+                    <div class="section-header">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Registrar Enfermedad
+                        </button>
+                    </div>
+                    <div class="diseases-grid">
+                        <div class="disease-card">
+                            <h3>Diabetes Tipo 2</h3>
+                            <p>Enfermedad crónica que afecta el metabolismo de la glucosa</p>
+                            <div class="disease-details">
+                                <span><strong>Usuario:</strong> Carlos Rodríguez</span>
+                                <span><strong>Gravedad:</strong> Moderada</span>
+                                <span><strong>Fecha:</strong> 10/01/2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="medicacion" class="health-tab-content">
+                    <div class="section-header">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Agregar Medicación
+                        </button>
+                    </div>
+                    <div class="medication-grid">
+                        <div class="medication-card">
+                            <h3>Metformina</h3>
+                            <p>Medicamento para control de diabetes</p>
+                            <div class="medication-details">
+                                <span><strong>Dosis:</strong> 500mg</span>
+                                <span><strong>Frecuencia:</strong> 2 veces al día</span>
+                                <span><strong>Usuario:</strong> Carlos Rodríguez</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="alergias" class="health-tab-content">
+                    <div class="section-header">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Registrar Alergia
+                        </button>
+                    </div>
+                    <div class="allergies-grid">
+                        <div class="allergy-card">
+                            <h3>Alergia a Penicilina</h3>
+                            <div class="allergy-details">
+                                <span><strong>Usuario:</strong> Ana Martínez</span>
+                                <span><strong>Gravedad:</strong> Grave</span>
+                                <span><strong>Fecha:</strong> 05/03/2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>NutriTrack365</span>
+                </div>
+                <p>Transformando la gestión de salud digital con tecnología avanzada y atención personalizada.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <ul class="footer-links">
+                    <li><a href="#usuarios">Gestión de Usuarios</a></li>
+                    <li><a href="#profesionales">Profesionales de Salud</a></li>
+                    <li><a href="#ejercicios">Ejercicios Físicos</a></li>
+                    <li><a href="#nutricion">Nutrición</a></li>
+                    <li><a href="#salud">Salud</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Tutoriales</a></li>
+                    <li><a href="#">Reportar Problema</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Acerca de Nosotros</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Carreras</a></li>
+                    <li><a href="#">Prensa</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> info@nutritrack365.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Salud 123, Ciudad</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 NutriTrack365. Todos los derechos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Uso</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nuevo Usuario</h2>
+                <span class="close" onclick="closeModal('addUserModal')">&times;</span>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <input type="text" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Peso (kg):</label>
+                        <input type="number" name="peso" min="20" max="300" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Altura (cm):</label>
+                        <input type="number" name="altura" min="100" max="250" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Género:</label>
+                    <select name="genero" required>
+                        <option value="">Seleccionar</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                        <option value="X">No binario</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de Nacimiento:</label>
+                    <input type="date" name="fechaNacimiento" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('addUserModal')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Professional Modal -->
+    <div id="addProfessionalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nuevo Profesional</h2>
+                <span class="close" onclick="closeModal('addProfessionalModal')">&times;</span>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <input type="text" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Especialidad:</label>
+                    <select name="especialidad" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Nutricionista">Nutricionista</option>
+                        <option value="Entrenador Personal">Entrenador Personal</option>
+                        <option value="Médico General">Médico General</option>
+                        <option value="Fisioterapeuta">Fisioterapeuta</option>
+                        <option value="Psicólogo">Psicólogo</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('addProfessionalModal')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Exercise Modal -->
+    <div id="addExerciseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nuevo Ejercicio</h2>
+                <span class="close" onclick="closeModal('addExerciseModal')">&times;</span>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Nombre del Ejercicio:</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Tipo:</label>
+                    <select name="tipo" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Cardio">Cardio</option>
+                        <option value="Fuerza">Fuerza</option>
+                        <option value="Flexibilidad">Flexibilidad</option>
+                        <option value="Yoga">Yoga</option>
+                        <option value="Pilates">Pilates</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Calorías Quemadas:</label>
+                    <input type="text" name="calorias" placeholder="ej: 300-600 kcal/hora" required>
+                </div>
+                <div class="form-group">
+                    <label>Músculos Trabajados:</label>
+                    <input type="text" name="musculos" placeholder="ej: Piernas, Glúteos" required>
+                </div>
+                <div class="form-group">
+                    <label>Dificultad:</label>
+                    <select name="dificultad" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Básica">Básica</option>
+                        <option value="Intermedia">Intermedia</option>
+                        <option value="Avanzada">Avanzada</option>
+                        <option value="Variable">Variable</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('addExerciseModal')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Food Modal -->
+    <div id="addFoodModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nuevo Alimento</h2>
+                <span class="close" onclick="closeModal('addFoodModal')">&times;</span>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Nombre del Alimento:</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Categoría:</label>
+                    <select name="categoria" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Proteína">Proteína</option>
+                        <option value="Cereal">Cereal</option>
+                        <option value="Verdura">Verdura</option>
+                        <option value="Fruta">Fruta</option>
+                        <option value="Lácteo">Lácteo</option>
+                        <option value="Grasa">Grasa</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Calorías (por 100g):</label>
+                        <input type="number" name="calorias" min="0" max="900" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Proteínas (g):</label>
+                        <input type="number" name="proteinas" min="0" max="100" step="0.1" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Grasas (g):</label>
+                        <input type="number" name="grasas" min="0" max="100" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Carbohidratos (g):</label>
+                        <input type="number" name="carbohidratos" min="0" max="100" step="0.1" required>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('addFoodModal')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Recipe Modal -->
+    <div id="addRecipeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nueva Receta</h2>
+                <span class="close" onclick="closeModal('addRecipeModal')">&times;</span>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Nombre de la Receta:</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Calorías Totales:</label>
+                    <input type="number" name="calorias" min="0" max="2000" required>
+                </div>
+                <div class="form-group">
+                    <label>Ingredientes (uno por línea):</label>
+                    <textarea name="ingredientes" rows="5" placeholder="Ejemplo:&#10;Lechuga romana&#10;Pollo a la plancha&#10;Crutones&#10;Parmesano" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('addRecipeModal')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Symptom Modal -->
+    <div id="addSymptomModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Registrar Síntoma</h2>
+                <span class="close" onclick="closeModal('addSymptomModal')">&times;</span>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Usuario:</label>
+                    <select name="usuario" required>
+                        <option value="">Seleccionar usuario</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nombre del Síntoma:</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción:</label>
+                    <textarea name="descripcion" rows="3" placeholder="Describe el síntoma en detalle"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Número de Apariciones:</label>
+                    <input type="number" name="apariciones" min="1" max="100" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('addSymptomModal')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
