@@ -39,24 +39,24 @@ NutriTrack365 es una aplicación web moderna diseñada para gestionar usuarios, 
 ## 🗄️ Estructura de la Base de Datos
 
 ### Tablas Principales
-- **usuario**: Datos personales y físicos de los usuarios
-- **profesional**: Información de especialistas de la salud
-- **ejercicioFisico**: Catálogo de ejercicios disponibles
-- **alimento**: Base de datos nutricional
-- **receta**: Recetas con ingredientes y calorías
-- **fichaMedica**: Información médica de usuarios
-- **sintomas**: Registro de síntomas de usuarios
-- **enfermedades**: Historial de enfermedades
-- **medicacion**: Control de medicamentos
-- **alergias**: Gestión de alergias
+-**usuario**: Contiene la información personal de los usuarios, como nombre, apellido, email, peso, altura, género, fecha de registro y fecha de nacimiento.
+-**profesional**: Almacena datos de los profesionales de la salud, incluyendo nombre, apellido, email y especialidad.
+-**fichaMedica**: Registra datos médicos generales de los usuarios, como grupo sanguíneo y observaciones.
+-**objetivoDeSalud**: Define los objetivos de salud de los usuarios con descripción, fechas de inicio y fin, y estado.
+-**ejercicioFisico**: Contiene información sobre los ejercicios disponibles, tipo y calorías quemadas.
+-**musculo**: Lista de músculos que se pueden relacionar con los ejercicios.
+-**sintomas**: Catálogo de síntomas con nombre y descripción.
+-**enfermedades**: Registro de enfermedades con nombre y descripción.
+-**medicacion**: Información sobre medicaciones disponibles, con nombre y descripción.
+-**alergias**: Catálogo de alergias posibles.
+-**alimento**: Contiene datos nutricionales de alimentos, incluyendo grasas, proteínas, carbohidratos y calorías.
+-**receta**: Guarda recetas con nombre, ingredientes y calorías totales.
 
 ### Tablas Intermedias
-- **profesionalUsuario**: Relación usuarios-profesionales
-- **Usuario_EjercicioFisico**: Registro de actividades físicas
-- **Usuario_Receta**: Seguimiento de consumo de recetas
-- **UsuarioSintomas**: Registro de síntomas por usuario
-- **FichaMedicaMedicacion**: Medicación por ficha médica
-- **FichaMedicaAlergias**: Alergias por ficha médica
+-**recetaIngrediente**: Relaciona recetas con los ingredientes utilizados en ellas.
+-**recetaPaso**: Asocia cada receta con los pasos para su preparación.
+-**profesionalConsejo**: Relaciona consejos con el profesional que los creó.
+-**consejoAlimento**: Asocia alimentos con los consejos relacionados.
 
 ## 🎨 Características de la Interfaz
 
