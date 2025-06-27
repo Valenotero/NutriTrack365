@@ -40,16 +40,27 @@ NutriTrack365 es una aplicación web moderna diseñada para gestionar usuarios, 
 
 ### Tablas Principales
 -**usuario**: Contiene la información personal de los usuarios, como nombre, apellido, email, peso, altura, género, fecha de registro y fecha de nacimiento
+
 -**profesional**: Almacena datos de los profesionales de la salud, incluyendo nombre, apellido, email y especialidad
+
 -**fichaMedica**: Registra datos médicos generales de los usuarios, como grupo sanguíneo y observaciones
+
 -**objetivoDeSalud**: Define los objetivos de salud de los usuarios con descripción, fechas de inicio y fin, y estado
+
 -**ejercicioFisico**: Contiene información sobre los ejercicios disponibles, tipo y calorías quemadas
+
 -**musculo**: Lista de músculos que se pueden relacionar con los ejercicios
+
 -**sintomas**: Catálogo de síntomas con nombre y descripción
+
 -**enfermedades**: Registro de enfermedades con nombre y descripción
+
 -**medicacion**: Información sobre medicaciones disponibles, con nombre y descripción
+
 -**alergias**: Catálogo de alergias posibles
+
 -**alimento**: Contiene datos nutricionales de alimentos, incluyendo grasas, proteínas, carbohidratos y calorías
+
 -**receta**: Guarda recetas con nombre, ingredientes y calorías totales
 
 ### Tablas Intermedias
